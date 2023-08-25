@@ -7,6 +7,25 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function sum(s, e) {
+    let total = 0;
+    for (let i = s; i <= e; i++) {
+        total += i;
+    }
+    return total;
 }
+
+function calculateTime(n) {
+    console.log(Date.now() / 1000);
+    let start = (Date.now()).toLocaleString('fullwide', {
+        useGrouping: false
+    });
+    console.log(sum(1, n));
+    let end = (Date.now()).toLocaleString('fullwide', {
+        useGrouping: false
+    });
+    console.log(start + "                " + end);
+    return ((end - start) / 1000).toPrecision(5);
+}
+
+console.log(calculateTime(10000));
